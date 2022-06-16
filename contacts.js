@@ -31,6 +31,7 @@ async function removeContact(contactId) {
       contacts.filter(({ id }) => id !== contactId)
     );
     fs.writeFile(contactsPath, newContactList);
+    console.log("Contact deleted");
   } catch (err) {
     console.log(err);
   }
@@ -49,6 +50,7 @@ async function addContact(name, email, phone) {
     };
     contacts.push(newContact);
     fs.writeFile(contactsPath, JSON.stringify(contacts));
+    console.log("Contact added", JSON.stringify(newContact));
   } catch (err) {
     console.log(err);
   }
